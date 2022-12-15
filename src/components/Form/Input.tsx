@@ -24,16 +24,16 @@ export const Input = ({label, name, type, placeholder, secure, autoComplete='off
       <label htmlFor={name}> {label}
         <div className={"wrapper"}>
           <input
-            placeholder={placeholder}
-            defaultValue={''}
-            type={type}
             id={name}
+            type={type}
+            placeholder={placeholder}
+            defaultValue={""}
             autoComplete={ autoComplete }
             onChange={onChange}
           />
           {secure && <Secure show={password} onClick={toggleSecure}/>}
         </div>
-        <div className={'error'}>
+        <div className={"error"}>
           {!isValid && <p>{error}</p>}
         </div>
       </label>
@@ -52,24 +52,24 @@ const Container = styled.div`
   }
   
   .wrapper {
-    margin-top: 10px;
-    border-radius: 10px;
-    background-color: ${Colors.darkGray};
-    border: 1px solid ${Colors.blue};
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    margin-top: 10px;
+    border: 1px solid ${Colors.blue};
+    border-radius: 10px;
+    background-color: ${Colors.darkGray};
   }
 
   input {
-    border-radius: 10px;
+    width: 100%;
+    padding: 15px 50px 15px 15px;
     background-color: ${Colors.darkGray};
     color: ${Colors.blue};
     border: none;
-    padding: 15px 50px 15px 15px;
+    border-radius: 10px;
     font-family: inherit;
-    width: 100%;
     outline: none;
     
     &::placeholder {
@@ -78,8 +78,8 @@ const Container = styled.div`
   }
   
   .error {
-    align-self: center;
-    margin-top: 10px;
     height: 20px;
+    margin-top: 10px;
+    align-self: center;
   }
 `;
