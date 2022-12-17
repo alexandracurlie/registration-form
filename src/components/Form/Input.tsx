@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Colors } from '../../styles/Colors';
 import { Secure } from './Secure';
 import { IField } from '../../utils/types';
 import styled from 'styled-components';
 
-export const Input = ({label, name, type, placeholder, secure, autoComplete='off', onChange, isValid, error}: IField) => {
+export const Input = memo(({label, name, type, placeholder, secure, autoComplete='off', onChange, isValid, error}: IField) => {
 
   const [password, setPassword] = useState(false);
 
@@ -39,7 +39,7 @@ export const Input = ({label, name, type, placeholder, secure, autoComplete='off
       </label>
     </Container>
   )
-}
+})
 
 const Container = styled.div`
   width: 100%;

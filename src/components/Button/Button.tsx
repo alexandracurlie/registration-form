@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../styles/Colors';
 import { IButton } from '../../utils/types';
 
-export const Button = ({children = 'Next', type = 'submit', onClick}: IButton) => {
+export const Button = memo(({children = 'Next', type = 'submit', onClick}: IButton) => {
 
   return (
     <StyledButton type={type} onClick={onClick}>
       {children}
     </StyledButton>
   )
-}
+})
 
 const StyledButton = styled.button`
   width: 100%;

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { Input } from '../Form/Input';
 import { Button } from '../Button/Button';
@@ -35,9 +35,9 @@ export const Login = () => {
   })
   const [valid, setValid] = useState(true)
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setState({...state, [e.target.id]: e.target.value})
-  }
+  }, [])
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
